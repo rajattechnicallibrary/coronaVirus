@@ -55,6 +55,15 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      var notificationOpenedCallback = function (jsonData) {
+        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      };
+
+      window["plugins"].OneSignal
+        .startInit("d7c3c07c-c88a-426e-89a3-ed6dbc20085e", "653410139399")
+        .handleNotificationOpened(notificationOpenedCallback)
+        .endInit();
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
