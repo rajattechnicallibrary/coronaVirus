@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Country Wise
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col col-4>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-title text-center>
+        Country Wise
+      </ion-title>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>Select Country *</ion-label>
+        <ion-select [(ngModel)]="account_cat" (ionChange)="onChange($event)" value="account_cat" okText="Okay"
+          cancelText="Dismiss">
+          <ion-select-option *ngFor="let x of randomData " value="{{x.Slug}}">{{x.Country}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-card-header>
+    <ion-card-title>Statistics Data of {{defaultCountry | titlecase}} 
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <canvas #barChartIndia style="position: relative; height:25vh; width:40vw"></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer style="position:unset">
+  <ion-grid no-lines>
+    <ion-row no-padding no-margin>
+      <ion-col col-4 no-padding>
+      </ion-col>
+      <ion-col col-4 no-padding class="ion-text-center" style="color: grey;font-size: smaller;">
+        Version {{localservice.version}}
+      </ion-col>
+      <ion-col col-4 no-padding>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

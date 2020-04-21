@@ -1,0 +1,30 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header >
+        <ion-toolbar color="primary">
+          <ion-title text-center>Corona Impacts</ion-title>
+        </ion-toolbar>
+      </ion-header>   
+      <ion-content>
+        <ion-list id="inbox-list">
+          <!-- <ion-list-header>Dashboard</ion-list-header> -->
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon class="icon-set item-inner"   name="{{p.icon}}"></ion-icon>
+              <!-- {{p.icon}} -->
+              <ion-label>{{ p.title }}</ion-label>    
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+      <ion-footer (click) ="logOut()">
+        <ion-toolbar>
+          <ion-button expand="block">Exit <ion-icon name="log-out"></ion-icon></ion-button>
+        </ion-toolbar>
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Statistics of {{finalDate}} 
+    </ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content [fullscreen]="true">
+  <ion-card-header>
+    <ion-card-title>Statistics Data of India <span *ngIf="limitCounter"> | {{limitCounter}}   sec</span></ion-card-title>
+  </ion-card-header>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <canvas #barChartIndia style="position: relative; height:25vh; width:40vw"></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card-header>
+    <ion-card-title>Statistics Data of World Wide</ion-card-title>
+  </ion-card-header>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <canvas #barChartWorld style="position: relative; height:25vh; width:40vw"></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
